@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import image from '../img/networking1.png'
+import image from '../../img/networking1.png'
 
 const Header = styled.header`
   background: rgb(47,67,104);
@@ -10,14 +10,27 @@ const Header = styled.header`
   background-repeat: no-repeat;
   height: 100vh;
   width: 99.24vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+      margin: 0;
+      color: white;
+      font-size: 3em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+  }
 `
 
-export class AppContainer extends Component {
+export default class Presentation extends Component {
   render() {
     return (
       <div>
-        <Header urlImg={image} />
-        <p>Pronto para começar!</p>
+        <Header urlImg={image} >
+            <h1>Pronto para contratar profissionais Ninjas?</h1>
+        </Header>
       </div>
     )
   }
