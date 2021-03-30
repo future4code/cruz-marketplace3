@@ -58,10 +58,21 @@ display: flex;
 justify-content: space-evenly;
 `
 
-const Button = styled.button`
+const ButtonWorkers = styled.button`
+background-color: #000000;
+color: #F5F3FC;
+height: 5em;
+width: 30%;
+border: 1px double #F5F3FC;
+border-radius: 50px 0;
+cursor: pointer;
+font-size: 1.5em;
+`
+
+const ButtonHirer = styled.button`
 background-color: #3E0C79;
 color: #F5F3FC;
-height: 7em;
+height: 5em;
 width: 30%;
 border: 1px double #F5F3FC;
 border-radius: 50px 0;
@@ -82,8 +93,8 @@ export default class Presentation extends React.Component {
             <p>Nossa missão: tornar a conexão entre contratantes e prestadores de serviço mais ágil e eficiente. Nossa visão: tornarmo-nos a maior plataforma de conexões profissionais do país! Caso você tenha um trabalho que precisa ser realizado, aqui poderá encontrar os melhores profissionais, verdadeiros ninjas de seus ramos! Caso você esteja buscando atuar como prestador de serviços, aqui encontrará as oportunidades perfeitas para demonstrar suas habilidades (e ter ótimos retornos)! Venha, mostre seu potencial, amplie seu networking e faça parte dessa rede brasileira de ninjas!</p>
           </TextPresentation>
           <ButtonsContainer>
-            <Button>Sou prestador de serviços</Button>
-            <Button>Sou contratante</Button>
+            <ButtonWorkers>Sou prestador de serviços</ButtonWorkers>
+            <ButtonHirer>Sou contratante</ButtonHirer>
           </ButtonsContainer>
         </Main>
       </div>
