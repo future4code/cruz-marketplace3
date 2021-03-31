@@ -5,6 +5,7 @@ const FiltersContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 15%;
   height: 60vh;
   padding: 10px;
@@ -33,8 +34,9 @@ export class Filters extends React.Component {
     return (
       
       <FiltersContainer>
-      <TitleFilter>Filtros</TitleFilter>
+          <TitleFilter>Filtros</TitleFilter>
       <ReseachName>
+
             <label>Pesquisar por nome</label>
               <input
               type='text' value={this.props.searchName} onChange={this.props.onChageSearchName} placeholder='Título ou Descrição'
