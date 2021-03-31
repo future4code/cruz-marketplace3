@@ -3,7 +3,7 @@ import React from 'react'
 import {Filters} from '../components/Filters'
 import {Footer} from '../components/Footer'
 import {Card} from '../components/Cards'
-import {Header} from '../components/Header'
+import { Header } from '../components/Header'
 
 const Container = styled.div`
   display: flex;
@@ -42,6 +42,7 @@ export default class App extends React.Component {
   render() {
   return (
     <div>
+      <Header/>
     <Container>
       <Filters
       minimum={this.state.minimum}
