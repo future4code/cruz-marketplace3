@@ -5,7 +5,7 @@ import { Theme } from './Theme'
 
 import Presentation from './pages/Presentation'
 import Consumer from './pages/Consumer'
-import Provider from './pages/Provider'
+import Hirer from './pages/Hirer'
 
 export default class App extends React.Component {
 	state = {
@@ -20,8 +20,8 @@ export default class App extends React.Component {
 		switch (this.state.page) {
 			case 'Consumer':
 				return <Consumer backPage={this.handleChangePage}/>
-			case 'Provider':
-				return <Provider backPage={this.handleChangePage}/>
+			case 'Hirer':
+				return <Hirer backPage={this.handleChangePage}/>
 			default:
 				return <Presentation changePage={this.handleChangePage} />
 		}
