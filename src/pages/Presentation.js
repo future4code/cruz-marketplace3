@@ -36,6 +36,7 @@ font-family: 'Arial';
 `
 
 const TextPresentation = styled.section`
+width: 100%;
 display:flex;
 flex-direction: column;
 align-items: center;
@@ -44,12 +45,14 @@ h3 {
   color: #3E0C79;
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 3%;
 }
 p{
   max-width: 70%;
   word-wrap: wrap;
   font-size: 1.5em;
   text-align: justify;
+  line-height: 1.5em;
 }
 `
 
