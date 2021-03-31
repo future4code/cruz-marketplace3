@@ -84,8 +84,8 @@ font-size: 1.5em;
 export default class Presentation extends React.Component {
   render() {
     return (
-      <ThemeProvider theme={Theme}>
-      /* <div> */
+      /* <ThemeProvider theme={Theme}> */
+      <div>
         <Header urlImg={image} >
           <h1>Pronto para contratar profissionais Ninjas?</h1>
         </Header>
@@ -99,8 +99,8 @@ export default class Presentation extends React.Component {
             <ButtonHirer>Sou contratante</ButtonHirer>
           </ButtonsContainer>
         </Main>
-        /* </div> */
-      </ThemeProvider>
+        </div>
+      /* </ThemeProvider> */
     )
   }
 }
