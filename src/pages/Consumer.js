@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import React from 'react'
 import {Filters} from '../components/Filters'
-import {Footer} from '../components/Footer/Footer'
-import {Card} from '../components/Card'
+import {Footer} from '../components/Footer'
+import {Card} from '../components/Cards'
 
 const Container = styled.div`
   display: flex;
@@ -22,6 +22,8 @@ export default class App extends React.Component {
     searchName:'',
     ordination:'',
   }
+
+  // função que altera o estado do app
 
   onChageMinimum = (event) => {
     this.setState({minimum: event.target.value})
