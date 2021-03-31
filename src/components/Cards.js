@@ -5,11 +5,10 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-left: 70px;
-  margin-bottom: 20px;
+  /* justify-content: center; */
+  margin: 20px 70px 20px 70px;
   width: 20%;
-  height: 30vh;
+  height: 90%;
   border: 1px solid black;
 `
 const DivData =styled.div`
@@ -18,7 +17,7 @@ const DivData =styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 25vh;
+  height: 30%;
   color: #8861b6;
 ` 
 
@@ -28,7 +27,7 @@ const Div = styled.div`
   align-items: center;
   border: 1px solid black;
   width: 100%; 
-  height: 10vh;
+  height: 30%;
   color: #8861b6;
 `
 const BtnSendProp =styled.button`
@@ -42,11 +41,11 @@ export class Card extends React.Component {
       <CardContainer>
         <DivData>
           <h3>{this.props.name}</h3>
-          <p>{this.props.value}</p>
-          <p>{this.props.formOfPayments}</p>
+          <p>Valor de remuneração:{this.props.value}</p>
+          <p>Método de Pagamento: {this.props.formOfPayments}</p>
         </DivData>
         <Div>
-          <p>{this.props.descripition}</p>
+          <p>Descrição:{this.props.descripition}</p>
         </Div>
         <BtnSendProp>Enviar Proposta</BtnSendProp>
       </CardContainer>

@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const FiltersContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 15%;
   height: 60vh;
   margin-top: 20vh;
-  /* border: 1px solid black; */
   padding: 10px;
-  background-color: #8661b6; // Trocar pelo Theme
+  background-color: #8661b6;
 `
 const ReseachName =styled.div`
   display: flex;
