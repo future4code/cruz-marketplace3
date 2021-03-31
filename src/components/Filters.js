@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const FiltersContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
   width: 15%;
   height: 60vh;
-  margin-top: 20vh;
   padding: 10px;
-  background-color: #8661b6;
+  background-color: #8661B6;
 `
+const TitleFilter = styled.h3`
+  margin: 25px 0 25px 0;
+` 
 const ReseachName =styled.div`
   display: flex;
   flex-direction: column;
@@ -19,9 +21,7 @@ const ValuesInput = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
-  
 `
-
 const Order = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,8 +33,8 @@ export class Filters extends React.Component {
     return (
       
       <FiltersContainer>
-            <h3>Filtros</h3>
-        <ReseachName>
+      <TitleFilter>Filtros</TitleFilter>
+      <ReseachName>
             <label>Pesquisar por nome</label>
               <input
               type='text' value={this.props.searchName} onChange={this.props.onChageSearchName} placeholder='Título ou Descrição'
@@ -61,7 +61,6 @@ export class Filters extends React.Component {
               </select>        
       </Order>
       </FiltersContainer>
-      
     )
   }
 }
