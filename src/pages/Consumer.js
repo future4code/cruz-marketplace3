@@ -55,31 +55,31 @@ export default class App extends React.Component {
       <Card
         name={'Nome'}
         value={'R$400,00'}
-        formOfPayments ={'10X S/ Juros'} 
+        formOfPayments ={'Débito'} 
         descripition={'Esse serviço é ...'}
       /> 
       <Card
         name={'Nome'}
         value={'R$300,00'}
-        formOfPayments ={'3X S/ Juros'} 
+        formOfPayments ={'Crédito'} 
         descripition={'Esse serviço é ... '}
       /> 
       <Card
         name={'Nome'}
         value={'R$100,00'}
-        formOfPayments ={'2X S/ Juros'} 
+        formOfPayments ={'Pix'} 
         descripition={'Esse serviço é ...'}
       /> 
       <Card
         name={'Nome'}
         value={'R$400,00'}
-        formOfPayments ={'2X S/ Juros'} 
+        formOfPayments ={'Á vista'} 
         descripition={'Esse serviço é ...'}
       /> 
       <Card
         name={'Nome'}
         value={'R$500,00'}
-        formOfPayments ={'12X S/ Juros'} 
+        formOfPayments ={'À prazo'} 
         descripition={'Esse serviço é ...'}
       /> 
     </CardsBox>
