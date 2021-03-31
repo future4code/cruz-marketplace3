@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import logo from '../../img/ninja (2).png'
+import logo from '../img/ninja (2).png'
 
 const Logo = styled.img`
     width: 150px;
@@ -8,6 +8,7 @@ const Logo = styled.img`
 `
 
 const HeaderContainer = styled.div`
+   width: 100%;
    background-color: #8661b6;
    align-items: center;
    justify-content: center;

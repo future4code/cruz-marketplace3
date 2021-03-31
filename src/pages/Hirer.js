@@ -1,22 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Footer } from '../components/Footer'
+import { Header } from '../components/Header'
+import Form from '../components/Form'
 
-import { Theme } from '../Theme'
+const MainContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+`
 
-const Button = styled.button`
-	background-color: ${props => props.color};
+const Content = styled.div`
+margin: 2% 0;
 `
 
 export default class Provider extends React.Component {
 
-    // função que altera o estado do app
-    
+
 	render() {
 		return (
-			<div>
-				<Button color={Theme.palette.primary.main}>Button com backgroun</Button>
-				<h1>Hello Provider</h1>
-			</div>
+			<MainContainer>
+				<Header />
+				<Content><Form /></Content>
+				<Footer />
+			</MainContainer>
 		)
 	}
 }
