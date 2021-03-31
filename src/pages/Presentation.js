@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import {Theme} from '../Theme/Theme'
+import {Theme} from '../Theme'
 
-import image from '../../img/networking1.png'
+import image from '../img/networking1.png'
 
 const Header = styled.header`
   background: rgb(47,67,104);
@@ -32,7 +32,7 @@ align-items: center;
 justify-content: space-between;
 height: 100vh;
 padding: 10px 0;
-font-family: 'Arial'
+font-family: 'Arial';
 `
 
 const TextPresentation = styled.section`
@@ -82,6 +82,15 @@ font-size: 1.5em;
 `
 
 export default class Presentation extends React.Component {
+  
+  handlePageConsumer = () => {
+    this.props.changePage('Consumer')
+  }
+  
+  handlePageProvider = () => {
+    this.props.changePage('Provider')
+  }
+
   render() {
     return (
       /* <ThemeProvider there={Theme}> */
@@ -95,8 +104,8 @@ export default class Presentation extends React.Component {
             <p>Nossa missão: tornar a conexão entre contratantes e prestadores de serviço mais ágil e eficiente. Nossa visão: tornarmo-nos a maior plataforma de conexões profissionais do país! Caso você tenha um trabalho que precisa ser realizado, aqui poderá encontrar os melhores profissionais, verdadeiros ninjas de seus ramos! Caso você esteja buscando atuar como prestador de serviços, aqui encontrará as oportunidades perfeitas para demonstrar suas habilidades (e ter ótimos retornos)! Venha, mostre seu potencial, amplie seu networking e faça parte dessa rede brasileira de ninjas!</p>
           </TextPresentation>
           <ButtonsContainer>
-            <ButtonWorkers>Sou prestador de serviços</ButtonWorkers>
-            <ButtonHirer>Sou contratante</ButtonHirer>
+            <ButtonWorkers onClick={this.handlePageProvider}>Sou prestador de serviços</ButtonWorkers>
+            <ButtonHirer onClick={this.handlePageConsumer}>Sou contratante</ButtonHirer>
           </ButtonsContainer>
         </Main>
         </div>
