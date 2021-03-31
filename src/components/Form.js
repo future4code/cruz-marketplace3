@@ -5,6 +5,7 @@ import { Input } from '@material-ui/core';
 import { FormControl } from '@material-ui/core';
 import { InputLabel, FormControlLabel, Checkbox, FormLabel, FormGroup } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import {Theme} from '../Theme'
 
 const DivForm = styled.div`
 padding: 10px;
@@ -15,6 +16,7 @@ align-items: flex-start;
 button
 {
     margin-top: 20px;
+    width: 100%;
 }
 fieldset{
     margin: 8px 0;
@@ -24,6 +26,15 @@ fieldset{
 }
 `
 
+const Title = styled.div`
+color: ${props => props.color};
+font-weight:500;
+font-size: 1.6em;
+letter-spacing:2px;
+text-align: center;
+width: 100%;
+padding-bottom: 4%;
+`
 
 export default class Form extends Component {
 
@@ -32,6 +43,7 @@ export default class Form extends Component {
     render() {
         return (
                 <DivForm  noValidate autoComplete="off">
+                        <Title color={Theme.palette.primary.dark}>Cadastro de serviço</Title>
                         <FormControl id="standard-textarea" fullWidth >
                             <InputLabel>Valor da remuneração</InputLabel>
                             <Input
