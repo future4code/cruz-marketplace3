@@ -87,13 +87,12 @@ export default class Presentation extends React.Component {
     this.props.changePage('Consumer')
   }
   
-  handlePageProvider = () => {
-    this.props.changePage('Provider')
+  handlePageHirer = () => {
+    this.props.changePage('Hirer')
   }
 
   render() {
     return (
-      /* <ThemeProvider there={Theme}> */
       <div>
         <Header urlImg={image} >
           <h1>Pronto para contratar profissionais Ninjas?</h1>
@@ -104,12 +103,11 @@ export default class Presentation extends React.Component {
             <p>Nossa missão: tornar a conexão entre contratantes e prestadores de serviço mais ágil e eficiente. Nossa visão: tornarmo-nos a maior plataforma de conexões profissionais do país! Caso você tenha um trabalho que precisa ser realizado, aqui poderá encontrar os melhores profissionais, verdadeiros ninjas de seus ramos! Caso você esteja buscando atuar como prestador de serviços, aqui encontrará as oportunidades perfeitas para demonstrar suas habilidades (e ter ótimos retornos)! Venha, mostre seu potencial, amplie seu networking e faça parte dessa rede brasileira de ninjas!</p>
           </TextPresentation>
           <ButtonsContainer>
-            <ButtonWorkers onClick={this.handlePageProvider}>Sou prestador de serviços</ButtonWorkers>
-            <ButtonHirer onClick={this.handlePageConsumer}>Sou contratante</ButtonHirer>
+            <ButtonWorkers onClick={this.handlePageConsumer}>Sou prestador de serviços</ButtonWorkers>
+            <ButtonHirer onClick={this.handlePageHirer}>Sou contratante</ButtonHirer>
           </ButtonsContainer>
         </Main>
         </div>
-      /* </ThemeProvider> */
     )
   }
 }
