@@ -11,6 +11,7 @@ import Bandeira3 from '../img/mastercard-logo.png'
 import Bandeira4 from '../img/pix-logo.png'
 
 const DivFooter = styled.div`
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     background-color: #4A4A4A;

@@ -8,6 +8,7 @@ const Logo = styled.img`
 `
 
 const HeaderContainer = styled.div`
+   width: 100%;
    background-color: #8661b6;
    align-items: center;
    justify-content: center;
