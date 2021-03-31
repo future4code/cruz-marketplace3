@@ -6,7 +6,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  margin: 20px 70px 20px 70px;
+  margin: 0px 70px 20px 70px;
   width: 20%;
   height: 90%;
   border: 1px solid black;

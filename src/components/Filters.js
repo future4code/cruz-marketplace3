@@ -5,12 +5,15 @@ import styled from 'styled-components';
 const FiltersContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 15%;
   height: 60vh;
-  margin-top: 20vh;
   padding: 10px;
   background-color: #8661b6;
 `
+const TitleFilter = styled.h3`
+  margin: 25px 0 25px 0;
+` 
 const ReseachName =styled.div`
   display: flex;
   flex-direction: column;
@@ -33,7 +36,7 @@ export class Filters extends React.Component {
     return (
       
       <FiltersContainer>
-            <h3>Filtros</h3>
+          <TitleFilter>Filtros</TitleFilter>
         <ReseachName>
             <label>Pesquisar por nome</label>
               <input

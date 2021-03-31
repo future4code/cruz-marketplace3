@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import logo from '../../img/ninja (2).png'
+import logo from '../img/ninja (2).png'
 
 const Logo = styled.img`
     width: 150px;
