@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import {Theme} from '../Theme/Theme'
 
 import image from '../../img/networking1.png'
 
@@ -83,6 +84,7 @@ font-size: 1.5em;
 export default class Presentation extends React.Component {
   render() {
     return (
+      /* <ThemeProvider there={Theme}> */
       <div>
         <Header urlImg={image} >
           <h1>Pronto para contratar profissionais Ninjas?</h1>
@@ -97,7 +99,8 @@ export default class Presentation extends React.Component {
             <ButtonHirer>Sou contratante</ButtonHirer>
           </ButtonsContainer>
         </Main>
-      </div>
+        </div>
+      /* </ThemeProvider> */
     )
   }
 }
