@@ -29,7 +29,7 @@ const Main = styled.main`
 display:flex;
 flex-direction: column;
 align-items: center;
-justify-content: space-between;
+justify-content: space-around;
 height: 100vh;
 padding: 10px 0;
 font-family: 'Arial';
@@ -60,7 +60,7 @@ justify-content: space-evenly;
 `
 
 const ButtonWorkers = styled.button`
-background-color: #000000;
+background-color:${props => props.color};
 color: #F5F3FC;
 height: 5em;
 width: 30%;
@@ -71,7 +71,7 @@ font-size: 1.5em;
 `
 
 const ButtonHirer = styled.button`
-background-color: #3E0C79;
+background-color:${props => props.color};
 color: #F5F3FC;
 height: 5em;
 width: 30%;
@@ -103,8 +103,8 @@ export default class Presentation extends React.Component {
             <p>Nossa missão: tornar a conexão entre contratantes e prestadores de serviço mais ágil e eficiente. Nossa visão: tornarmo-nos a maior plataforma de conexões profissionais do país! Caso você tenha um trabalho que precisa ser realizado, aqui poderá encontrar os melhores profissionais, verdadeiros ninjas de seus ramos! Caso você esteja buscando atuar como prestador de serviços, aqui encontrará as oportunidades perfeitas para demonstrar suas habilidades (e ter ótimos retornos)! Venha, mostre seu potencial, amplie seu networking e faça parte dessa rede brasileira de ninjas!</p>
           </TextPresentation>
           <ButtonsContainer>
-            <ButtonWorkers onClick={this.handlePageConsumer}>Sou prestador de serviços</ButtonWorkers>
-            <ButtonHirer onClick={this.handlePageHirer}>Sou contratante</ButtonHirer>
+            <ButtonWorkers color={Theme.palette.primary.dark} onClick={this.handlePageConsumer}>Sou prestador de serviços</ButtonWorkers>
+            <ButtonHirer color={Theme.palette.secondary.dark} onClick={this.handlePageHirer}>Sou contratante</ButtonHirer>
           </ButtonsContainer>
         </Main>
         </div>
