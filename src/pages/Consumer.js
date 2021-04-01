@@ -94,13 +94,17 @@ export default class App extends React.Component {
           return <p>{methods}</p>
        })
 
+
       return (
         <Card key={job.id}
+        id={job.id}
         name={job.title}
         value={job.value}
+        taken={job.taken}
         paymentMethods={paymentMethods}
-        descripition={job.description}
+        description={job.description}
         dueDate ={job.dueDate}
+        getJobs={this.getJobs}
       />
       )
     })
