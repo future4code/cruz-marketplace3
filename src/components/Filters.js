@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const FiltersContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 15%;
-  height: 60vh;
+  height: 100vh;
   padding: 10px;
-  background-color: #8661B6;
+  background-color: whitesmoke;
 `
-const TitleFilter = styled.h3`
-  margin: 25px 0 25px 0;
-` 
+
 const ReseachName =styled.div`
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ export class Filters extends React.Component {
     return (
       
       <FiltersContainer>
-          <TitleFilter>Filtros</TitleFilter>
+          <h3>Filtros</h3>
       <ReseachName>
 
             <label>Pesquisar por nome</label>
