@@ -44,34 +44,34 @@ export class Filters extends React.Component {
             placeholder="Título ou Descrição"
           />
         </ReseachName>
-
-        <ValuesInput>
-          <label>Valor mínimo</label>
-          <input
-            type="number"
-            min="0"
-            value={this.props.minimum}
-            onChange={this.props.onChageMinimum}
-            placeholder="R$"
-          />
-          <label>Valor maximo</label>
-          <input
-            type="number"
-            max="10000"
-            value={this.props.maximum}
-            onChange={this.props.onChageMaximum}
-            placeholder="R$"
-          />
-        </ValuesInput>
-        <Order>
-          <label>Ordenar </label>
-          <select onChange={this.props.onChageOrdination}>
-            <option></option>
-            <option>Título</option>
-            <option>Valor</option>
-            <option>Prazo</option>
-          </select>
-        </Order>
+   
+          <ValuesInput>
+            <label>Valor mínimo</label>
+            <input
+              type="number"
+              min="0"
+              value={this.props.minimum}
+              onChange={this.props.onChageMinimum}
+              placeholder="R$"
+            />
+            <label>Valor maximo</label>
+            <input
+              type="number"
+              max="10000"
+              value={this.props.maximum}
+              onChange={this.props.onChageMaximum}
+              placeholder="R$"
+            />
+          </ValuesInput>
+          <Order>
+            <label>Ordenar </label>
+            <select onChange={this.props.onChageOrdination}>
+              <option></option>
+              <option>Título</option>
+              <option>Valor</option>
+              <option>Prazo</option>
+            </select>
+          </Order>
       </FiltersContainer>
     );
   }
