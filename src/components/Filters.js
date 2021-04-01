@@ -34,11 +34,7 @@ export class Filters extends React.Component {
   render() {
     return (
       <FiltersContainer>
-
-          <h3>Filtros</h3>
-      <ReseachName>
-
-        <TitleFilter>Filtros</TitleFilter>
+        <h3>Filtros</h3> 
         <ReseachName>
           <label>Pesquisar por nome</label>
           <input
