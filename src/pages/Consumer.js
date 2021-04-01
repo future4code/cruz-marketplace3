@@ -15,6 +15,7 @@ const CardsBox = styled.div`
   Display: flex; 
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 ` 
 
 export default class App extends React.Component {

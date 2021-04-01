@@ -1,15 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  margin: 0px 70px 20px 70px;
+  margin: 30px;
   width: 20%;
-  height: 90%;
-  border: 1px solid black;
+  height: 100%;
+  background-color: #8661B6;
+  border-radius: 5px;
+  button{
+    margin: 10px;
+    cursor: pointer;
+    font-size: 10px;
+  }
 `
 const DivData =styled.div`
   display: flex;
@@ -17,22 +23,18 @@ const DivData =styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 30%;
-  color: #8861b6;
+  height: 100px;
+  color: white;
 ` 
 
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  border-top: 1px solid black;
   width: 100%; 
-  height: 30%;
-  color: #8861b6;
-`
-const BtnSendProp =styled.button`
-  margin: 10px;
-  cursor: pointer;
+  height: 40px;
+  color: white;
 `
 
 export class Card extends React.Component {
@@ -47,7 +49,9 @@ export class Card extends React.Component {
         <Div>
           <p>Descrição:{this.props.descripition}</p>
         </Div>
-        <BtnSendProp>Enviar Proposta</BtnSendProp>
+        <Button variant="contained" color="primary" onClick={this.sendInfo}>
+                    Enviar Proposta
+                        </Button>
       </CardContainer>
     )
   }
