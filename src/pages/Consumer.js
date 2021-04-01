@@ -94,7 +94,6 @@ export default class App extends React.Component {
           return <p>{methods}</p>
        })
 
-
       return (
         <Card key={job.id}
         id={job.id}
