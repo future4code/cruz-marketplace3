@@ -14,7 +14,7 @@ export const Theme = createMuiTheme({
       light: '#F5F3FC', //cinza claro
       main: '#4A4A4A', //cinza
       dark: '#000000', //preto
-
+      cancel: '#ff6b6b' // vermelho pastel
     },
     // Usado por `getContrastText()` para maximizar o contraste entre
     // o plano de fundo e o texto.
