@@ -20,6 +20,7 @@ const CardContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    text-transform: capitalize;
   }
 
   p {
