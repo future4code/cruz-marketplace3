@@ -34,17 +34,17 @@ export class Filters extends React.Component {
   render() {
     return (
       <FiltersContainer>
-          <h3>Filtros</h3>
-          <ReseachName>
-            <label>Pesquisar por nome</label>
-            <input
-              type="text"
-              value={this.props.searchName}
-              onChange={this.props.onChageSearchName}
-              placeholder="Título ou Descrição"
-            />
-          </ReseachName>
-
+        <h3>Filtros</h3> 
+        <ReseachName>
+          <label>Pesquisar por nome</label>
+          <input
+            type="text"
+            value={this.props.searchName}
+            onChange={this.props.onChageSearchName}
+            placeholder="Título ou Descrição"
+          />
+        </ReseachName>
+   
           <ValuesInput>
             <label>Valor mínimo</label>
             <input
