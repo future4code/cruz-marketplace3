@@ -68,24 +68,34 @@ export default class Form extends Component {
         this.setState({ deadline: e.target.value })
     }
 
-    onClickCredit = () => {
-        this.setState({ credit: !this.state.credit })
+    onClickCredit = (e) => {
+        this.setState({ credit: e.target.checked }, ()=>{
+            console.log(this.state.credit)
+        })
     }
 
-    onClickDebit = () => {
-        this.setState({ debit: !this.state.debit })
+    onClickDebit = (e) => {
+        this.setState({ debit: e.target.checked }, ()=>{
+            console.log(this.state.debit)
+        })
     }
 
-    onClickPix = () => {
-        this.setState({ pix: !this.state.pix })
+    onClickPix = (e) => {
+        this.setState({ pix: e.target.checked }, ()=>{
+            console.log(this.state.pix)
+        })
     }
 
-    onClickCashPayment = () => {
-        this.setState({ cashPayment: !this.state.cashPayment })
+    onClickCashPayment = (e) => {
+        this.setState({ cashPayment: e.target.checked }, ()=>{
+            console.log(this.state.cashPayment)
+        })
     }
 
-    onClickDeferredPayment = () => {
-        this.setState({ deferredPayment: !this.state.deferredPayment })
+    onClickDeferredPayment = (e) => {
+        this.setState({ deferredPayment: e.target.checked }, ()=>{
+            console.log(this.state.deferredPayment)
+        })
     }
 
     sendInfo = async () => {
@@ -116,7 +126,7 @@ export default class Form extends Component {
             }
             try {
                 let jobWasCreated = await axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`, newJob)
-                this.setState({ title: '', description: '', remuneration: '', deadline: '' })
+                this.setState({ title: '', description: '', remuneration: '', deadline: '', credit: false, debit: false, pix: false, cashPayment: false, deferredPayment: false })
                 alert('Serviço criado com sucesso!')
             } catch (error) {
                 console.log(error.response)
@@ -151,7 +161,7 @@ export default class Form extends Component {
                     <InputLabel>Descrição</InputLabel>
                     <Input
                         id="standard-textarea"
-                        placeholder="Preciso de um predreito para trocar o piso do meu apartamento"
+                        placeholder="Preciso de um predreiro para trocar o piso do meu apartamento"
                         fullWidth
                         multiline
                         startAdornment={<InputAdornment position="start"></InputAdornment>}
@@ -162,12 +172,13 @@ export default class Form extends Component {
                 <FormControl id="standard-textarea" fullWidth >
                     <InputLabel>Valor da remuneração</InputLabel>
                     <Input
+                        type="number"
                         className=".Mui-error"
                         required
                         label="DDD Origem"
                         variant="outlined"
                         margin="dense"
-                        placeholder="2000,00"
+                        placeholder="2000.00"
                         fullWidth
                         startAdornment={<InputAdornment position="start">R$</InputAdornment>}
                         InputProps={{
@@ -186,9 +197,10 @@ export default class Form extends Component {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    name="checkedB"
+                                    name="credit"
                                     color="primary"
                                     onClick={this.onClickCredit}
+                                    checked={this.state.credit}
                                 />
                             }
                             label="Crédito"
@@ -196,9 +208,10 @@ export default class Form extends Component {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    name="checkedB"
+                                    name="debit"
                                     color="primary"
                                     onClick={this.onClickDebit}
+                                    checked={this.state.debit}
                                 />
                             }
                             label="Débito"
@@ -206,9 +219,10 @@ export default class Form extends Component {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    name="checkedB"
+                                    name="pix"
                                     color="primary"
                                     onClick={this.onClickPix}
+                                    checked={this.state.pix}
                                 />
                             }
                             label="Pix"
@@ -216,9 +230,10 @@ export default class Form extends Component {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    name="checkedB"
+                                    name="cashPayment"
                                     color="primary"
                                     onClick={this.onClickCashPayment}
+                                    checked={this.state.cashPayment}
                                 />
                             }
                             label="À vista"
@@ -226,9 +241,10 @@ export default class Form extends Component {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    name="checkedB"
+                                    name="deferredPayment"
                                     color="primary"
                                     onClick={this.onClickDeferredPayment}
+                                    checked={this.state.deferredPayment}
                                 />
                             }
                             label="À prazo"
