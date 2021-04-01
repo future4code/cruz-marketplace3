@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Rede1 from '../../img/rede-social(1).ico'
-import Rede2 from '../../img/rede-social(2).ico'
-import Rede3 from '../../img/rede-social(3).ico'
-import Rede4 from '../../img/rede-social(4).ico'
+import Rede2 from '../img/rede-social(2).ico'
+import Rede3 from '../img/rede-social(3).ico'
+import Rede1 from '../img/rede-social(1).ico'
+import Rede4 from '../img/rede-social(4).ico'
 
-import Bandeira1 from '../../img/boleto-bancario.png'
-import Bandeira2 from '../../img/elo_logo.png'
-import Bandeira3 from '../../img/mastercard-logo.png'
-import Bandeira4 from '../../img/pix-logo.png'
+import Bandeira1 from '../img/boleto-bancario.png'
+import Bandeira2 from '../img/elo_logo.png'
+import Bandeira3 from '../img/mastercard-logo.png'
+import Bandeira4 from '../img/pix-logo.png'
 
 const DivFooter = styled.div`
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     background-color: #4A4A4A;

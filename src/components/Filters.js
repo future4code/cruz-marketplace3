@@ -2,14 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FiltersContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  width: 25%;
+  align-items: center;
+  width: 15%;
   height: 60vh;
-  margin-top: 20vh;
-  border: 1px solid black;
   padding: 10px;
+  background-color: #8661B6;
 `
+const TitleFilter = styled.h3`
+  margin: 25px 0 25px 0;
+` 
 const ReseachName =styled.div`
   display: flex;
   flex-direction: column;
@@ -18,9 +22,6 @@ const ValuesInput = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
-`
-const RangerInput = styled.input`
-  cursor: pointer;
 `
 const Order = styled.div`
   display: flex;
@@ -31,29 +32,31 @@ const Order = styled.div`
 export class Filters extends React.Component {
   render(){
     return (
+      
       <FiltersContainer>
-            <h3>Filtros</h3>
-        <ReseachName>
-            <label>Pesquisar por nome:</label>
+          <TitleFilter>Filtros</TitleFilter>
+      <ReseachName>
+
+            <label>Pesquisar por nome</label>
               <input
-              type='text' value='' onChange='' placeholder='Título ou Descrição'
+              type='text' value={this.props.searchName} onChange={this.props.onChageSearchName} placeholder='Título ou Descrição'
               />
       </ReseachName>
+      
       <ValuesInput>
-      <label>Pesquisar por preço</label>
-      <RangerInput type="range" min="0" max="10000" value="5000"/>
-            {/* <label>Valor Mínimo:</label>
+            <label>Valor mínimo</label>
               <input
-              type='number' min='0' value='' onChange='' placeholder='R$'
+              type='number' min='0' value={this.props.minimum} onChange={this.props.onChageMinimum} placeholder='R$'
               />
-            <label>Valor Maximo:</label>
+            <label>Valor maximo</label>
               <input
-              type='number' max='10000' value='' onChange='' placeholder='R$'
-              /> */}
+              type='number' max='10000' value={this.props.maximum} onChange={this.props.onChageMaximum} placeholder='R$'
+              />
       </ValuesInput>
       <Order> 
             <label>Ordenar </label>               
-                <select>
+                <select onChange={this.props.onChageOrdination}>
+                  <option ></option>
                   <option >Título</option>
                   <option >Valor</option>
                   <option >Prazo</option>
