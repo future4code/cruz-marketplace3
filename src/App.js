@@ -19,9 +19,9 @@ export default class App extends React.Component {
   renderedPage = () => {
     switch (this.state.page) {
       case "Consumer":
-        return <Consumer backPage={this.handleChangePage} />;
+        return <Consumer toHome={this.handleChangePage} />;
       case "Hirer":
-        return <Hirer backPage={this.handleChangePage} />;
+        return <Hirer toHome={this.handleChangePage} />;
       default:
         return <Presentation changePage={this.handleChangePage} />;
     }

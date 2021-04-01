@@ -44,7 +44,7 @@ export default class App extends React.Component {
   render() {
   return (
     <div>
-      <Header/>
+      <Header toHome={this.props.toHome}/>
     <Container>
       <Filters
       minimum={this.state.minimum}
