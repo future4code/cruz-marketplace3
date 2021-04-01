@@ -61,7 +61,35 @@ export default class Form extends Component {
     }
 
     onChangeRemuneration = (e) => {
-        this.setState({ remuneration: e.target.value })
+        let s = "";
+        let cp = "";
+        let vr = e.target.value;
+        let tam = vr.length;
+        for (let i = 0; i < tam; i++) {
+            if (vr.substring(i, i + 1) === "0" ||
+                vr.substring(i, i + 1) === "1" ||
+                vr.substring(i, i + 1) === "2" ||
+                vr.substring(i, i + 1) === "3" ||
+                vr.substring(i, i + 1) === "4" ||
+                vr.substring(i, i + 1) === "5" ||
+                vr.substring(i, i + 1) === "6" ||
+                vr.substring(i, i + 1) === "7" ||
+                vr.substring(i, i + 1) === "8" ||
+                vr.substring(i, i + 1) === "9") {
+                s = s + vr.substring(i, i + 1);
+            }
+        }
+        s = String(Number(s))
+        if (s.length === 1) {
+            cp = '0.0' + s
+        } else if (s.length === 2) {
+            cp = '0.' + s
+        } else {
+            cp = s.substring(0, s.length - 2) + '.' + s.substring(s.length - 2)
+        }
+        cp = Number(cp)
+        console.log(cp)
+        this.setState({ remuneration: cp })
     }
 
     onChangeDeadline = (e) => {
@@ -69,31 +97,31 @@ export default class Form extends Component {
     }
 
     onClickCredit = (e) => {
-        this.setState({ credit: e.target.checked }, ()=>{
+        this.setState({ credit: e.target.checked }, () => {
             console.log(this.state.credit)
         })
     }
 
     onClickDebit = (e) => {
-        this.setState({ debit: e.target.checked }, ()=>{
+        this.setState({ debit: e.target.checked }, () => {
             console.log(this.state.debit)
         })
     }
 
     onClickPix = (e) => {
-        this.setState({ pix: e.target.checked }, ()=>{
+        this.setState({ pix: e.target.checked }, () => {
             console.log(this.state.pix)
         })
     }
 
     onClickCashPayment = (e) => {
-        this.setState({ cashPayment: e.target.checked }, ()=>{
+        this.setState({ cashPayment: e.target.checked }, () => {
             console.log(this.state.cashPayment)
         })
     }
 
     onClickDeferredPayment = (e) => {
-        this.setState({ deferredPayment: e.target.checked }, ()=>{
+        this.setState({ deferredPayment: e.target.checked }, () => {
             console.log(this.state.deferredPayment)
         })
     }
@@ -120,19 +148,19 @@ export default class Form extends Component {
             let newJob = {
                 title: this.state.title,
                 description: this.state.description,
-                value: Number(this.state.remuneration),
+                value: this.state.remuneration,
                 paymentMethods: chosenMethod,
                 dueDate: this.state.deadline,
             }
             try {
-                let jobWasCreated = await axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`, newJob)
+                await axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`, newJob)
                 this.setState({ title: '', description: '', remuneration: '', deadline: '', credit: false, debit: false, pix: false, cashPayment: false, deferredPayment: false })
                 alert('Serviço criado com sucesso!')
             } catch (error) {
                 console.log(error.response)
-                if(error.response.status===400){
+                if (error.response.status === 400) {
                     alert('Os dados inseridos podem estar equivocados. Favor conferi-los.')
-                } else{
+                } else {
                     alert('Ocorreu um erro no sistema e estamos trabalhando para resolvê-lo. Por favor, tente novamente mais tarde.')
                 }
             }
@@ -172,7 +200,7 @@ export default class Form extends Component {
                 <FormControl id="standard-textarea" fullWidth >
                     <InputLabel>Valor da remuneração</InputLabel>
                     <Input
-                        type="number"
+                        type="text"
                         className=".Mui-error"
                         required
                         label="DDD Origem"
