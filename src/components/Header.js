@@ -19,7 +19,7 @@ export class Header extends Component {
   render() {
     return (
       <HeaderContainer>
-         <Logo src={logo} alt= "logo" />
+        <Logo src={logo} alt="logo" />
       </HeaderContainer>
     )
   }
