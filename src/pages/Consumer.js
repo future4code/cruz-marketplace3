@@ -85,6 +85,22 @@ export default class App extends React.Component {
             return allJobs.sort((a, b) => {
               return a.value-b.value
             })
+            case "deadline":
+              let intermediateArray = [...allJobs]
+              let arrayWithOrderNumber = intermediateArray.map((job) => {
+                let array = job.dueDate.split('-')
+                let dayNumber = Number(array[2]) + 30 * Number(array[1]) + 365 * Number(array[0])
+                let jobWithOrderNumber = { ...job, orderNumber: dayNumber }
+                return jobWithOrderNumber
+              })
+              let orderedArray = arrayWithOrderNumber.sort((a, b) => {
+                return a.orderNumber - b.orderNumber
+              })
+              orderedArray.forEach((job) => {
+                delete job.orderNumber
+              })
+              return orderedArray
+      
       default:
         return allJobs;
     }
