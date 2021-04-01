@@ -67,9 +67,9 @@ export class Filters extends React.Component {
             <label>Ordenar </label>
             <select onChange={this.props.onChageOrdination}>
               <option></option>
-              <option>Título</option>
-              <option>Valor</option>
-              <option>Prazo</option>
+              <option value="title">Título</option>
+              <option value="value">Valor</option>
+              <option value="deadline">Prazo</option>
             </select>
           </Order>
       </FiltersContainer>

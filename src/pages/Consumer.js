@@ -4,7 +4,7 @@ import {Filters} from '../components/Filters'
 import {Footer} from '../components/Footer'
 import {Card} from '../components/Cards'
 import {Header} from '../components/Header'
-
+import axios from 'axios'
 
 const Container = styled.div`
   display: flex;
@@ -12,11 +12,11 @@ const Container = styled.div`
   align-items: center;
 `
 const CardsBox = styled.div`
-  Display: flex; 
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-` 
+`
 
 export default class App extends React.Component {
   state= {
@@ -24,8 +24,24 @@ export default class App extends React.Component {
     maximum: '',
     searchName:'',
     ordination:'',
+    jobs: []
   }
-
+  componentDidMount() {
+    this.getJobs();
+  }
+  getJobs = async () => {
+    try {
+      let response = await axios.get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`
+      )
+      console.log(response.data.jobs);
+      this.setState({
+        jobs: response.data.jobs
+      })
+    } catch (error) {
+      console.log(error.response);
+    }
+  }
   // função que altera o estado do app
 
   onChageMinimum = (event) => {
@@ -40,8 +56,54 @@ export default class App extends React.Component {
   onChageOrdination = (event) => {
     this.setState({ordination: event.target.value})
   }
-  
+
+  //fução que organiza o array 
+  orderByFilters = () => {
+    return this.state.jobs.filter((job) =>{
+      return !this.state.maximum || job.value <= this.state.maximum
+    })
+     .filter((job) => {
+       return !this.state.minimum || job.value >= this.state.minimum
+     })
+     .filter((job) => {
+       return !this.state.searchName || (job.title.toUpperCase().includes(this.state.searchName.toUpperCase()) || job.description.toUpperCase().includes(this.state.searchName.toUpperCase()))
+   })
+  }
+
+  orderBy = (allJobs) => {
+    switch (this.state.ordination) {
+      case "title":
+          return allJobs.sort((a, b) => {
+            return (a.title>b.title) ? 1 : ((b.title>a.title) ? -1 : 0)
+          })
+          case "value":
+            return allJobs.sort((a, b) => {
+              return a.value-b.value
+            })
+      default:
+        return allJobs;
+    }
+  }
+
   render() {
+   
+   let allJobs = this.orderByFilters();
+   allJobs = this.orderBy(allJobs)
+    const allJobsCards = allJobs.map((job) =>{
+       const paymentMethods = job.paymentMethods.map((methods) =>{
+          return <p>{methods}</p>
+       })
+
+      return (
+        <Card key={job.id}
+        name={job.title}
+        value={job.value}
+        paymentMethods={paymentMethods}
+        descripition={job.description}
+        dueDate ={job.dueDate}
+      />
+      )
+    })
   return (
     <div>
       <Header toHome={this.props.toHome}/>
@@ -55,37 +117,8 @@ export default class App extends React.Component {
       onChageSearchName={this.onChageSearchName}
       onChageOrdination={this.onChageOrdination}
       />
-      <CardsBox>      
-      <Card
-        name={'Nome'}
-        value={'R$400,00'}
-        formOfPayments ={'Débito'} 
-        descripition={'Esse serviço é ...'}
-      /> 
-      <Card
-        name={'Nome'}
-        value={'R$300,00'}
-        formOfPayments ={'Crédito'} 
-        descripition={'Esse serviço é ... '}
-      /> 
-      <Card
-        name={'Nome'}
-        value={'R$100,00'}
-        formOfPayments ={'Pix'} 
-        descripition={'Esse serviço é ...'}
-      /> 
-      <Card
-        name={'Nome'}
-        value={'R$400,00'}
-        formOfPayments ={'Á vista'} 
-        descripition={'Esse serviço é ...'}
-      /> 
-      <Card
-        name={'Nome'}
-        value={'R$500,00'}
-        formOfPayments ={'À prazo'} 
-        descripition={'Esse serviço é ...'}
-      /> 
+      <CardsBox>
+        {allJobsCards}
     </CardsBox>
     </Container>
     <Footer/>
