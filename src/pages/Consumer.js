@@ -5,6 +5,7 @@ import {Footer} from '../components/Footer'
 import {Card} from '../components/Cards'
 import {Header} from '../components/Header'
 import axios from 'axios'
+import { NetworkLockedSharp } from '@material-ui/icons'
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +17,8 @@ const CardsBox = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  width: calc(100% - 250px);
+
 `
 
 export default class App extends React.Component {
@@ -56,7 +59,9 @@ export default class App extends React.Component {
   onChageOrdination = (event) => {
     this.setState({ordination: event.target.value})
   }
-
+  onChageRemuneration = (event, a) =>{
+    console.log(event, a)
+  }
   //fução que organiza o array 
   orderByFilters = () => {
     return this.state.jobs.filter((job) =>{
@@ -119,6 +124,7 @@ export default class App extends React.Component {
       onChageMaximum={this.onChageMaximum}
       onChageSearchName={this.onChageSearchName}
       onChageOrdination={this.onChageOrdination}
+      onChageRemuneration={this.onChageRemuneration}
       />
       <CardsBox>
         {allJobsCards}
