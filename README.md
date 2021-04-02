@@ -1,7 +1,7 @@
 ## FutureNinjas 3
 
 Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos (FutureNinjas). 
-### Link criado por meio so surge
+### Link criado por meio do surge
 
 ***INSERIR LINK DO SURGE AQUI***
 
