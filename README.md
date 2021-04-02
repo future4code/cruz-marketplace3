@@ -1,8 +1,11 @@
 ## FutureNinjas 3
 
 Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos (FutureNinjas). 
-Link criado por meio so surge: ***INSERIR LINK DO SURGE AQUI***
-Os membros do grupo são:
+### Link criado por meio so surge
+
+***INSERIR LINK DO SURGE AQUI***
+
+### Membros do grupo
 
 - Janaylla Firmino
 - José Isaac Barreiro Campos
