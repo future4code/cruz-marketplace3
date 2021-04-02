@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { InputLabel, FormControlLabel, Checkbox, FormLabel, FormGroup, FormControl, Input, MenuItem, Select, Typography, Slider} from '@material-ui/core';
+import { InputLabel, FormControlLabel, Checkbox, FormLabel, FormGroup, FormControl, Input, MenuItem, Select, Typography, Slider } from '@material-ui/core';
 
 const FiltersContainer = styled.div`
   display: flex;
@@ -8,7 +8,6 @@ const FiltersContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 250px;
-  /* height: 100%; */
   padding: 10px;
   font-size: 15px;
   top: 0;
@@ -41,17 +40,17 @@ export class Filters extends React.Component {
       <FiltersContainer>
         <h3>Filtros</h3>
 
-          <FormControl id="standard-textarea" fullWidth >
-            <InputLabel>Pesquisar por nome</InputLabel>
-            <Input
-              variant="outlined"
-              margin="dense"
-              placeholder="Título ou Descrição"
-              fullWidth
-              value={this.props.searchName}
-              onChange={this.props.onChageSearchName}
-            />
-          </FormControl>
+        <FormControl id="standard-textarea" fullWidth >
+          <InputLabel>Pesquisar por nome</InputLabel>
+          <Input
+            variant="outlined"
+            margin="dense"
+            placeholder="Título ou Descrição"
+            fullWidth
+            value={this.props.searchName}
+            onChange={this.props.onChageSearchName}
+          />
+        </FormControl>
 
         <ValuesInput>
           <label>Valor mínimo</label>
@@ -73,39 +72,39 @@ export class Filters extends React.Component {
         </ValuesInput>
 
         <div>
-      <Typography  gutterBottom>
-        Remuneração
+          <Typography gutterBottom>
+            Remuneração
       </Typography>
-      <Slider
-        valueLabelDisplay="auto"
-        aria-labelledby="range-slider"
-        // getAriaValueText={"100"}
-        defaultValue={[0, 10000]}
-        max={10000}
-        // value={[this.props.minimum, this.props.maximum]}
-        onChange={this.props.onChageRemuneration}
-      />
-    </div>
+          <Slider
+            valueLabelDisplay="auto"
+            aria-labelledby="range-slider"
+            // getAriaValueText={"100"}
+            defaultValue={[0, 10000]}
+            max={10000}
+            // value={[this.props.minimum, this.props.maximum]}
+            onChange={this.props.onChageRemuneration}
+          />
+        </div>
 
         <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-helper-label"   fullWidth>Ordenar:</InputLabel>
-        <Select
-          labelId="demo-simple-select-helper-label"
-          id="demo-simple-select-helper"
-          // value={}
-          // onChange={}
-          onChange={this.props.onChageOrdination}
-        >
-          <MenuItem value="" fullWidth>
-            <em>
-              
-            </em>
-          </MenuItem>
-          <MenuItem value="title">Título</MenuItem>
-          <MenuItem value="value">Valor</MenuItem>
-          <MenuItem value="deadline">Prazo</MenuItem>
-        </Select>
-      </FormControl>
+          <InputLabel id="demo-simple-select-helper-label" fullWidth>Ordenar:</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            // value={}
+            // onChange={}
+            onChange={this.props.onChageOrdination}
+          >
+            <MenuItem value="" fullWidth>
+              <em>
+
+              </em>
+            </MenuItem>
+            <MenuItem value="title">Título</MenuItem>
+            <MenuItem value="value">Valor</MenuItem>
+            <MenuItem value="deadline">Prazo</MenuItem>
+          </Select>
+        </FormControl>
       </FiltersContainer>
     );
   }

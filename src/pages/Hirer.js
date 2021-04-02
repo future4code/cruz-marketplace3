@@ -21,7 +21,7 @@ export default class Provider extends React.Component {
 	render() {
 		return (
 			<MainContainer>
-				<Header toHome={this.props.toHome}/>
+				<Header toHome={this.props.toHome} />
 				<Content><Form /></Content>
 				<Footer />
 			</MainContainer>
