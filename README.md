@@ -4,11 +4,11 @@ Projeto de Market Place para a oferta e procura de serviços para profissionais 
 Link criado por meio so surge: ***INSERIR LINK DO SURGE AQUI***
 Os membros do grupo são:
 
-Janaylla Firmino
-José Isaac Barreiro Campos
-Kelvia Kelline dos Santos Sousa
-Leonardo Federmann
-Pedro Cysne
+- Janaylla Firmino
+- José Isaac Barreiro Campos
+- Kelvia Kelline dos Santos Sousa
+- Leonardo Federmann
+- Pedro Cysne
 
 ### Organização do site
 O site possui:
