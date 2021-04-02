@@ -1,4 +1,4 @@
-# FutureNinjas 3
+## FutureNinjas 3
 
 Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos (FutureNinjas). 
 Link criado por meio so surge: ***INSERIR LINK DO SURGE AQUI***
@@ -10,7 +10,7 @@ Kelvia Kelline dos Santos Sousa
 Leonardo Federmann
 Pedro Cysne
 
-##Organização do site
+### Organização do site
 O site possui:
 --> Uma página de apresentação da empresa, contendo uma slogan e um resumo dos propósitos do site. Contém também dois botões para direcionamento às demais páginas.
 --> Uma página de cadastro de serviços, na qual um contratante poderá preencher um formulário que criará um novo serviço para o qual deseja contratar alguém. Deverão ser inseridas as informações: 
@@ -35,10 +35,10 @@ Nessa mesma seção, encontra-se a opção de ordenar os serviços apresentados 
 
 Ademais, nessa mesma página, encontram-se os mesmos header e footer anteriormente citados, tendo o header a mesma funcionalidade de direcionamento à página de apresentação.
 
-##O que funciona
+### O que funciona
 
 Todos os requisitos técnicos exigidos no Notion estão sendo atendidos, o que inclui: direcionamento às páginas de cadastro e lista de serviços; envio do serviço criado no formulário à API; resgate de todos os serviços na API de modo a formar a lista de serviços, organizados e apresentados em cards; e os filtros supracitados.
 
-##O que não funciona
+### O que não funciona
 
 Link com as redes sociais por meio do footer (inserido somente com objetivos ilustrativos). 
