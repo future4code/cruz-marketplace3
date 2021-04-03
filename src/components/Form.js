@@ -61,35 +61,49 @@ export default class Form extends Component {
     }
 
     onChangeRemuneration = (e) => {
-        let s = "";
-        let cp = "";
-        let vr = e.target.value;
-        let tam = vr.length;
-        for (let i = 0; i < tam; i++) {
-            if (vr.substring(i, i + 1) === "0" ||
-                vr.substring(i, i + 1) === "1" ||
-                vr.substring(i, i + 1) === "2" ||
-                vr.substring(i, i + 1) === "3" ||
-                vr.substring(i, i + 1) === "4" ||
-                vr.substring(i, i + 1) === "5" ||
-                vr.substring(i, i + 1) === "6" ||
-                vr.substring(i, i + 1) === "7" ||
-                vr.substring(i, i + 1) === "8" ||
-                vr.substring(i, i + 1) === "9") {
-                s = s + vr.substring(i, i + 1);
-            }
-        }
-        s = String(Number(s))
-        if (s.length === 1) {
-            cp = '0.0' + s
-        } else if (s.length === 2) {
-            cp = '0.' + s
-        } else {
-            cp = s.substring(0, s.length - 2) + '.' + s.substring(s.length - 2)
-        }
-        cp = Number(cp)
-        console.log(cp)
-        this.setState({ remuneration: cp })
+
+        this.setState({ remuneration: e.target.value })
+
+        //O código abaixo foi uma tentativa de converter o valor do input de remuneração para o formato de moeda sem, para isso, necessitar baixar novas extensões e plugins (como máscaras e JQuery). Contudo, essa tentativa foi frustrada devido a um bug específico (os números zeros não apareciam no input), motivo pelo qual decidimos não utilizada, deixando-a comitada somente para efeitos de informação.
+
+        //     let s = "";
+        //     let cp = "";
+        //     let vr = e.target.value;
+        //     let tam = vr.length;
+        //     for (let i = 0; i < tam; i++) {
+        //         if (vr.substring(i, i + 1) === "0" ||
+        //             vr.substring(i, i + 1) === "1" ||
+        //             vr.substring(i, i + 1) === "2" ||
+        //             vr.substring(i, i + 1) === "3" ||
+        //             vr.substring(i, i + 1) === "4" ||
+        //             vr.substring(i, i + 1) === "5" ||
+        //             vr.substring(i, i + 1) === "6" ||
+        //             vr.substring(i, i + 1) === "7" ||
+        //             vr.substring(i, i + 1) === "8" ||
+        //             vr.substring(i, i + 1) === "9") {
+        //             s = s + vr.substring(i, i + 1);
+        //         }
+        //     }
+        //     let s2 = "";
+        //     for (let i = 0; i < tam; i++) {
+        //         if (s.substring(i, i + 1) !== "0"){
+        //             s2 = s2 + s.substring(i, i + 1);
+        //         }
+        //     }
+        //     s= s2;
+        //     console.log("S1", s)
+        //      console.log("S2",s)
+        //     if (s.length > 3) {
+        //         cp = s.substring(0, s.length - 2) + '.' + s.substring(s.length - 2)
+        //     }else if(s.length > 2){
+        //         cp = '0,' + s
+        //     } 
+        //     else {
+        //         cp = '0,0' + s
+        //    }
+        //     // cp = Number(cp)
+        //     console.log(cp)
+        // this.setState({ remuneration: cp })
     }
 
     onChangeDeadline = (e) => {
@@ -97,33 +111,23 @@ export default class Form extends Component {
     }
 
     onClickCredit = (e) => {
-        this.setState({ credit: e.target.checked }, () => {
-            console.log(this.state.credit)
-        })
+        this.setState({ credit: e.target.checked })
     }
 
     onClickDebit = (e) => {
-        this.setState({ debit: e.target.checked }, () => {
-            console.log(this.state.debit)
-        })
+        this.setState({ debit: e.target.checked })
     }
 
     onClickPix = (e) => {
-        this.setState({ pix: e.target.checked }, () => {
-            console.log(this.state.pix)
-        })
+        this.setState({ pix: e.target.checked })
     }
 
     onClickCashPayment = (e) => {
-        this.setState({ cashPayment: e.target.checked }, () => {
-            console.log(this.state.cashPayment)
-        })
+        this.setState({ cashPayment: e.target.checked })
     }
 
     onClickDeferredPayment = (e) => {
-        this.setState({ deferredPayment: e.target.checked }, () => {
-            console.log(this.state.deferredPayment)
-        })
+        this.setState({ deferredPayment: e.target.checked })
     }
 
     sendInfo = async () => {
@@ -218,7 +222,6 @@ export default class Form extends Component {
 
                 </FormControl>
 
-
                 <FormControl id="standard-textarea" component="fieldset" row>
                     <FormLabel component="legend">Métodos de pagamento</FormLabel>
                     <FormGroup row>
@@ -280,7 +283,6 @@ export default class Form extends Component {
                     </FormGroup>
                 </FormControl>
 
-
                 <FormControl id="standard-textarea" fullWidth >
                     <InputLabel>Prazo</InputLabel>
                     <Input
@@ -295,9 +297,7 @@ export default class Form extends Component {
 
                 </FormControl>
 
-                <Button variant="contained" color="primary" onClick={this.sendInfo}>
-                    ENVIAR
-                        </Button>
+                <Button variant="contained" color="primary" onClick={this.sendInfo}>ENVIAR</Button>
             </DivForm>
         )
     }
