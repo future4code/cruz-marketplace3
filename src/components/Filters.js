@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { InputLabel, FormControlLabel, Checkbox, FormLabel, FormGroup, FormControl, Input, MenuItem, Select, Typography, Slider} from '@material-ui/core';
+import { InputLabel, FormControlLabel, Checkbox, FormLabel, FormGroup, FormControl, Input, MenuItem, Select, Typography, Slider } from '@material-ui/core';
 
 const FiltersContainer = styled.div`
   display: flex;
@@ -10,6 +10,7 @@ const FiltersContainer = styled.div`
   width: 250px;
   /* height: 100%; */
   padding: 20px;
+
   font-size: 15px;
   top: 0;
   left: 0;
@@ -51,20 +52,17 @@ export class Filters extends React.Component {
       <FiltersContainer>
         <h2>Filtros</h2>
 
-          <FormControl id="standard-textarea" fullWidth >
-            <InputLabel>Pesquisar por nome</InputLabel>
-            <Input
-              variant="outlined"
-              margin="dense"
-              placeholder="Título ou Descrição"
-              fullWidth
-              value={this.props.searchName}
-              onChange={this.props.onChageSearchName}
-            />
-          </FormControl>
-
-     
-
+        <FormControl id="standard-textarea" fullWidth >
+          <InputLabel>Pesquisar por nome</InputLabel>
+          <Input
+            variant="outlined"
+            margin="dense"
+            placeholder="Título ou Descrição"
+            fullWidth
+            value={this.props.searchName}
+            onChange={this.props.onChageSearchName}
+          />
+        </FormControl>
       <Typography  gutterBottom>
         Remuneração
       </Typography>

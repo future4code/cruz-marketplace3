@@ -114,33 +114,23 @@ export default class Form extends Component {
     }
 
     onClickCredit = (e) => {
-        this.setState({ credit: e.target.checked }, () => {
-            console.log(this.state.credit)
-        })
+        this.setState({ credit: e.target.checked })
     }
 
     onClickDebit = (e) => {
-        this.setState({ debit: e.target.checked }, () => {
-            console.log(this.state.debit)
-        })
+        this.setState({ debit: e.target.checked })
     }
 
     onClickPix = (e) => {
-        this.setState({ pix: e.target.checked }, () => {
-            console.log(this.state.pix)
-        })
+        this.setState({ pix: e.target.checked })
     }
 
     onClickCashPayment = (e) => {
-        this.setState({ cashPayment: e.target.checked }, () => {
-            console.log(this.state.cashPayment)
-        })
+        this.setState({ cashPayment: e.target.checked })
     }
 
     onClickDeferredPayment = (e) => {
-        this.setState({ deferredPayment: e.target.checked }, () => {
-            console.log(this.state.deferredPayment)
-        })
+        this.setState({ deferredPayment: e.target.checked })
     }
 
     sendInfo = async () => {
@@ -165,7 +155,7 @@ export default class Form extends Component {
             let newJob = {
                 title: this.state.title,
                 description: this.state.description,
-                value: this.state.remuneration,
+                value: Number(this.state.remuneration.replace(",", ".")),
                 paymentMethods: chosenMethod,
                 dueDate: this.state.deadline,
             }
@@ -235,7 +225,6 @@ export default class Form extends Component {
 
                 </FormControl>
 
-
                 <FormControl id="standard-textarea" component="fieldset" row>
                     <FormLabel component="legend">Métodos de pagamento</FormLabel>
                     <FormGroup row>
@@ -297,7 +286,6 @@ export default class Form extends Component {
                     </FormGroup>
                 </FormControl>
 
-
                 <FormControl id="standard-textarea" fullWidth >
                     <InputLabel>Prazo</InputLabel>
                     <Input
@@ -312,9 +300,7 @@ export default class Form extends Component {
 
                 </FormControl>
 
-                <Button variant="contained" color="primary" onClick={this.sendInfo}>
-                    ENVIAR
-                        </Button>
+                <Button variant="contained" color="primary" onClick={this.sendInfo}>ENVIAR</Button>
             </DivForm>
         )
     }

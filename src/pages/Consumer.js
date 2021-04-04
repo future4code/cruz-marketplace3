@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import React from 'react'
-import {Filters} from '../components/Filters'
-import {Footer} from '../components/Footer'
-import {Card} from '../components/Cards'
-import {Header} from '../components/Header'
+import { Filters } from '../components/Filters'
+import { Footer } from '../components/Footer'
+import { Card } from '../components/Cards'
+import { Header } from '../components/Header'
 import axios from 'axios'
 
 const Container = styled.div`
@@ -21,7 +21,7 @@ const CardsBox = styled.div`
 `
 
 export default class App extends React.Component {
-  state= {
+  state = {
     minimum: '',
     maximum: '',
     searchName:'',
@@ -54,13 +54,13 @@ export default class App extends React.Component {
   // função que altera o estado do app
 
   onChageMinimum = (event) => {
-    this.setState({minimum: event.target.value})
+    this.setState({ minimum: event.target.value })
   }
   onChageMaximum = (event) => {
-    this.setState({maximum: event.target.value})
+    this.setState({ maximum: event.target.value })
   }
   onChageSearchName = (event) => {
-    this.setState({searchName: event.target.value})
+    this.setState({ searchName: event.target.value })
   }
   onChageOrdination = (event) => {
     this.setState({ordination: event.target.value})
@@ -72,70 +72,80 @@ export default class App extends React.Component {
       minimum: a[0]
     })
   }
+  
   //fução que organiza o array 
   orderByFilters = () => {
-    return this.state.jobs.filter((job) =>{
+    return this.state.jobs.filter((job) => {
       return !this.state.maximum || job.value <= this.state.maximum
     })
-     .filter((job) => {
-       return !this.state.minimum || job.value >= this.state.minimum
-     })
-     .filter((job) => {
-       return !this.state.searchName || (job.title.toUpperCase().includes(this.state.searchName.toUpperCase()) || job.description.toUpperCase().includes(this.state.searchName.toUpperCase()))
-   })
+      .filter((job) => {
+        return !this.state.minimum || job.value >= this.state.minimum
+      })
+      .filter((job) => {
+        return !this.state.searchName || (job.title.toUpperCase().includes(this.state.searchName.toUpperCase()) || job.description.toUpperCase().includes(this.state.searchName.toUpperCase()))
+      })
   }
 
   orderBy = (allJobs) => {
     switch (this.state.ordination) {
       case "title":
-          return allJobs.sort((a, b) => {
-            return (a.title>b.title) ? 1 : ((b.title>a.title) ? -1 : 0)
-          })
-          case "value":
-            return allJobs.sort((a, b) => {
-              return a.value-b.value
-            })
-            case "deadline":
-              let intermediateArray = [...allJobs]
-              let arrayWithOrderNumber = intermediateArray.map((job) => {
-                let array = job.dueDate.split('-')
-                let dayNumber = Number(array[2]) + 30 * Number(array[1]) + 365 * Number(array[0])
-                let jobWithOrderNumber = { ...job, orderNumber: dayNumber }
-                return jobWithOrderNumber
-              })
-              let orderedArray = arrayWithOrderNumber.sort((a, b) => {
-                return a.orderNumber - b.orderNumber
-              })
-              orderedArray.forEach((job) => {
-                delete job.orderNumber
-              })
-              return orderedArray
-      
+        return allJobs.sort((a, b) => {
+          return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0)
+        })
+      case "value":
+        return allJobs.sort((a, b) => {
+          return a.value - b.value
+        })
+      case "deadline":
+        let intermediateArray = [...allJobs]
+        let arrayWithOrderNumber = intermediateArray.map((job) => {
+          let array = job.dueDate.split('-')
+          let dayNumber = Number(array[2]) + 30 * Number(array[1]) + 365 * Number(array[0])
+          let jobWithOrderNumber = { ...job, orderNumber: dayNumber }
+          return jobWithOrderNumber
+        })
+        let orderedArray = arrayWithOrderNumber.sort((a, b) => {
+          return a.orderNumber - b.orderNumber
+        })
+        orderedArray.forEach((job) => {
+          delete job.orderNumber
+        })
+        return orderedArray
+
       default:
         return allJobs;
     }
   }
 
   render() {
-   
-   let allJobs = this.orderByFilters();
-   allJobs = this.orderBy(allJobs)
-    const allJobsCards = allJobs.map((job) =>{
-       const paymentMethods = job.paymentMethods.map((methods) =>{
-          return <p>{methods}</p>
-       })
+
+    let allJobs = this.orderByFilters();
+    allJobs = this.orderBy(allJobs)
+    const allJobsCards = allJobs.map((job) => {
+      const paymentMethods = job.paymentMethods.map((methods) => {
+        return <p>{methods}</p>
+      })
+      let valueMask = String(job.value).replace(".", ",");
+     
+      if(valueMask.indexOf(",") === -1)
+         valueMask += ",00"; 
+      else if(valueMask.substr(valueMask.length-2,1) === ",")
+        valueMask += "0";
+
+      const arrayDueDate =  job.dueDate.split('-');
+      const dueDateMask = arrayDueDate[2] +"/"+arrayDueDate[1] +"/"+arrayDueDate[0]
 
       return (
         <Card key={job.id}
-        id={job.id}
-        name={job.title}
-        value={job.value}
-        taken={job.taken}
-        paymentMethods={paymentMethods}
-        description={job.description}
-        dueDate ={job.dueDate}
-        getJobs={this.getJobs}
-      />
+          id={job.id}
+          name={job.title}
+          value={valueMask}
+          taken={job.taken}
+          paymentMethods={paymentMethods}
+          description={job.description}
+          dueDate={dueDateMask}
+          getJobs={this.getJobs}
+        />
       )
     })
   return (

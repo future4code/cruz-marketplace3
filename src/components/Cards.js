@@ -46,6 +46,9 @@ const CardContainer = styled.div`
     color: white;
     font-weight: 700;
   }
+  #cancel{
+    background-color: #ff6b6b;
+  }
 `
 
 const DivData = styled.div`
@@ -74,23 +77,23 @@ const Div = styled.div`
 
 export class Card extends React.Component {
   takeJob = async () => {
-      try {
-        await axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs/${this.props.id}/take`)
-        alert('Job aceito com sucesso!')
-        await this.props.getJobs()
-      } catch (error) {
-        console.log(error.message)
-      }
+    try {
+      await axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs/${this.props.id}/take`)
+      alert('Job aceito com sucesso!')
+      await this.props.getJobs()
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
   giveupJob = async () => {
-      try {
-        await axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs/${this.props.id}/giveup`)
-        alert('Job recusado com sucesso!')
-        await this.props.getJobs()
-      } catch (error) {
-        console.log(error.message)
-      }
+    try {
+      await axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs/${this.props.id}/giveup`)
+      alert('Job recusado com sucesso!')
+      await this.props.getJobs()
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
   render() {
@@ -117,8 +120,8 @@ export class Card extends React.Component {
           </p>
         </Div>
 
-        {this.props.taken ? 
-          <Button onClick={this.giveupJob} variant="contained" color="primary">
+        {this.props.taken ?
+          <Button onClick={this.giveupJob} variant="contained" color="primary" id="cancel" >
             Cancelar proposta
           </Button>
           :
@@ -126,7 +129,7 @@ export class Card extends React.Component {
             Enviar proposta
           </Button>
         }
-        
+
       </CardContainer>
     );
   }
