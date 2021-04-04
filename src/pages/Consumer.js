@@ -5,7 +5,6 @@ import {Footer} from '../components/Footer'
 import {Card} from '../components/Cards'
 import {Header} from '../components/Header'
 import axios from 'axios'
-import { NetworkLockedSharp } from '@material-ui/icons'
 
 const Container = styled.div`
   display: flex;
@@ -27,7 +26,8 @@ export default class App extends React.Component {
     maximum: '',
     searchName:'',
     ordination:'',
-    jobs: []
+    jobs: [], 
+    maximumValue: 0
   }
   componentDidMount() {
     this.getJobs();
@@ -38,8 +38,14 @@ export default class App extends React.Component {
         `https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`
       )
       console.log(response.data.jobs);
+      let maximumValue = 0;
+      response.data.jobs.forEach(job => {
+        if(Number(job.value) > maximumValue)
+          maximumValue = Number(job.value)
+      })
       this.setState({
-        jobs: response.data.jobs
+        jobs: response.data.jobs,
+        maximumValue: Number(maximumValue)
       })
     } catch (error) {
       console.log(error.response);
@@ -59,8 +65,12 @@ export default class App extends React.Component {
   onChageOrdination = (event) => {
     this.setState({ordination: event.target.value})
   }
-  onChageRemuneration = (event, a) =>{
+  onChageRemuneration = (event, a) => {
     console.log(event, a)
+    this.setState({
+      maximum: a[1],
+      minimum: a[0]
+    })
   }
   //fução que organiza o array 
   orderByFilters = () => {
@@ -135,12 +145,14 @@ export default class App extends React.Component {
       <Filters
       minimum={this.state.minimum}
       maximum={this.state.maximum}
+      maximumValue={this.state.maximumValue}
       searchName={this.state.searchName}
       onChageMinimum={this.onChageMinimum}
       onChageMaximum={this.onChageMaximum}
       onChageSearchName={this.onChageSearchName}
       onChageOrdination={this.onChageOrdination}
       onChageRemuneration={this.onChageRemuneration}
+      
       />
       <CardsBox>
         {allJobsCards}

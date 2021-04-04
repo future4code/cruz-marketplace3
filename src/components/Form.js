@@ -78,18 +78,35 @@ export default class Form extends Component {
                 vr.substring(i, i + 1) === "9") {
                 s = s + vr.substring(i, i + 1);
             }
+        }   
+        
+        console.log("AASD", s, s.length)
+        console.log("S0", s)
+        for (let i = 0; i < s.length; i++) {
+            console.log("S1 for", i, s.substring(i, 1))
+            if (s.substring(0, 1) == "0"){
+                    s = s.substring(1);
+            }
+            else{
+                // s2 = s2 + s.substring(i);
+                break;
+            }
         }
-        s = String(Number(s))
-        if (s.length === 1) {
-            cp = '0.0' + s
-        } else if (s.length === 2) {
-            cp = '0.' + s
-        } else {
-            cp = s.substring(0, s.length - 2) + '.' + s.substring(s.length - 2)
-        }
-        cp = Number(cp)
+        console.log("S1", s)
+    
+         console.log("S2",s)
+        if (s.length > 2) {
+            cp = s.substring(0, s.length - 2) + ',' + s.substring(s.length - 2)
+       
+        }else if(s.length > 1){
+            cp = '00,' + s
+        } 
+        else {
+            cp = '00,0' + s
+       }
+        // cp = Number(cp)
         console.log(cp)
-        this.setState({ remuneration: cp })
+         this.setState({ remuneration: cp })
     }
 
     onChangeDeadline = (e) => {
