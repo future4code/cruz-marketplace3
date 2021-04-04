@@ -82,7 +82,7 @@ export class Card extends React.Component {
       alert('Job aceito com sucesso!')
       await this.props.getJobs()
     } catch (error) {
-      console.log(error.message)
+      // console.log(error.message)
     }
   }
 
@@ -92,7 +92,7 @@ export class Card extends React.Component {
       alert('Job recusado com sucesso!')
       await this.props.getJobs()
     } catch (error) {
-      console.log(error.message)
+      // console.log(error.message)
     }
   }
 

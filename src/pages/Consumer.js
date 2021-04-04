@@ -37,7 +37,7 @@ export default class App extends React.Component {
       let response = await axios.get(
         `https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`
       )
-      console.log(response.data.jobs);
+      // console.log(response.data.jobs);
       let maximumValue = 0;
       response.data.jobs.forEach(job => {
         if(Number(job.value) > maximumValue)
@@ -48,7 +48,7 @@ export default class App extends React.Component {
         maximumValue: Number(maximumValue)
       })
     } catch (error) {
-      console.log(error.response);
+      // console.log(error.response);
     }
   }
   // função que altera o estado do app
@@ -66,7 +66,7 @@ export default class App extends React.Component {
     this.setState({ordination: event.target.value})
   }
   onChageRemuneration = (event, a) => {
-    console.log(event, a)
+    // console.log(event, a)
     this.setState({
       maximum: a[1],
       minimum: a[0]

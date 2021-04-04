@@ -80,10 +80,10 @@ export default class Form extends Component {
             }
         }   
         
-        console.log("AASD", s, s.length)
-        console.log("S0", s)
+        // console.log("AASD", s, s.length)
+        // console.log("S0", s)
         for (let i = 0; i < s.length; i++) {
-            console.log("S1 for", i, s.substring(i, 1))
+            // console.log("S1 for", i, s.substring(i, 1))
             if (s.substring(0, 1) == "0"){
                     s = s.substring(1);
             }
@@ -92,9 +92,9 @@ export default class Form extends Component {
                 break;
             }
         }
-        console.log("S1", s)
+        // console.log("S1", s)
     
-         console.log("S2",s)
+        //  console.log("S2",s)
         if (s.length > 2) {
             cp = s.substring(0, s.length - 2) + ',' + s.substring(s.length - 2)
        
@@ -164,7 +164,7 @@ export default class Form extends Component {
                 this.setState({ title: '', description: '', remuneration: '', deadline: '', credit: false, debit: false, pix: false, cashPayment: false, deferredPayment: false })
                 alert('Serviço criado com sucesso!')
             } catch (error) {
-                console.log(error.response)
+                // console.log(error.response)
                 if (error.response.status === 400) {
                     alert('Os dados inseridos podem estar equivocados. Favor conferi-los.')
                 } else {
