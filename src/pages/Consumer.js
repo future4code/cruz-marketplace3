@@ -5,7 +5,6 @@ import { Footer } from '../components/Footer'
 import { Card } from '../components/Cards'
 import { Header } from '../components/Header'
 import axios from 'axios'
-import { NetworkLockedSharp } from '@material-ui/icons'
 
 const Container = styled.div`
   display: flex;
@@ -25,9 +24,10 @@ export default class App extends React.Component {
   state = {
     minimum: '',
     maximum: '',
-    searchName: '',
-    ordination: '',
-    jobs: []
+    searchName:'',
+    ordination:'',
+    jobs: [], 
+    maximumValue: 0
   }
   componentDidMount() {
     this.getJobs();
@@ -37,12 +37,18 @@ export default class App extends React.Component {
       let response = await axios.get(
         `https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs`
       )
-      console.log(response.data.jobs);
+      // console.log(response.data.jobs);
+      let maximumValue = 0;
+      response.data.jobs.forEach(job => {
+        if(Number(job.value) > maximumValue)
+          maximumValue = Number(job.value)
+      })
       this.setState({
-        jobs: response.data.jobs
+        jobs: response.data.jobs,
+        maximumValue: Number(maximumValue)
       })
     } catch (error) {
-      console.log(error.response);
+      // console.log(error.response);
     }
   }
   // função que altera o estado do app
@@ -57,7 +63,14 @@ export default class App extends React.Component {
     this.setState({ searchName: event.target.value })
   }
   onChageOrdination = (event) => {
-    this.setState({ ordination: event.target.value })
+    this.setState({ordination: event.target.value})
+  }
+  onChageRemuneration = (event, a) => {
+    // console.log(event, a)
+    this.setState({
+      maximum: a[1],
+      minimum: a[0]
+    })
   }
   
   //fução que organiza o array 
@@ -112,40 +125,51 @@ export default class App extends React.Component {
       const paymentMethods = job.paymentMethods.map((methods) => {
         return <p>{methods}</p>
       })
+      let valueMask = String(job.value).replace(".", ",");
+     
+      if(valueMask.indexOf(",") === -1)
+         valueMask += ",00"; 
+      else if(valueMask.substr(valueMask.length-2,1) === ",")
+        valueMask += "0";
+
+      const arrayDueDate =  job.dueDate.split('-');
+      const dueDateMask = arrayDueDate[2] +"/"+arrayDueDate[1] +"/"+arrayDueDate[0]
 
       return (
         <Card key={job.id}
           id={job.id}
           name={job.title}
-          value={job.value}
+          value={valueMask}
           taken={job.taken}
           paymentMethods={paymentMethods}
           description={job.description}
-          dueDate={job.dueDate}
+          dueDate={dueDateMask}
           getJobs={this.getJobs}
         />
       )
     })
-    return (
-      <div>
-        <Header toHome={this.props.toHome} />
-        <Container>
-          <Filters
-            minimum={this.state.minimum}
-            maximum={this.state.maximum}
-            searchName={this.state.searchName}
-            onChageMinimum={this.onChageMinimum}
-            onChageMaximum={this.onChageMaximum}
-            onChageSearchName={this.onChageSearchName}
-            onChageOrdination={this.onChageOrdination}
-            onChageRemuneration={this.onChageRemuneration}
-          />
-          <CardsBox>
-            {allJobsCards}
-          </CardsBox>
-        </Container>
-        <Footer />
-      </div>
-    );
+  return (
+    <div>
+      <Header toHome={this.props.toHome}/>
+    <Container>
+      <Filters
+      minimum={this.state.minimum}
+      maximum={this.state.maximum}
+      maximumValue={this.state.maximumValue}
+      searchName={this.state.searchName}
+      onChageMinimum={this.onChageMinimum}
+      onChageMaximum={this.onChageMaximum}
+      onChageSearchName={this.onChageSearchName}
+      onChageOrdination={this.onChageOrdination}
+      onChageRemuneration={this.onChageRemuneration}
+      
+      />
+      <CardsBox>
+        {allJobsCards}
+    </CardsBox>
+    </Container>
+    <Footer/>
+    </div>
+  );
   }
 }

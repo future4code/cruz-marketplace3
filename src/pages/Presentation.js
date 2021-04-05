@@ -16,7 +16,7 @@ const Header = styled.header`
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  width: 99.24vw;
+  width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -52,13 +52,12 @@ const TextPresentation = styled.section`
     color: #3e0c79;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 3%;
   }
 
   p {
     max-width: 70%;
     word-wrap: wrap;
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-align: justify;
     line-height: 1.5em;
   }

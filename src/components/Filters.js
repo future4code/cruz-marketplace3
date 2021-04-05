@@ -8,13 +8,18 @@ const FiltersContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 250px;
-  padding: 10px;
+  /* height: 100%; */
+  padding: 20px;
+
   font-size: 15px;
   top: 0;
   left: 0;
   align-self: flex-start;
   background-color: #F5F3FC;
   align-self: stretch;
+  h3{
+    color: #3E0C79;
+  }
  
 `
 const ReseachName = styled.div`
@@ -33,12 +38,19 @@ const Order = styled.div`
   flex-direction: column;
   margin-top: 30px;
 `
-
+const MinMax = styled.div`
+display: flex;
+width: 100%;
+justify-content: space-between;
+h5{
+  width: 50%;
+}
+`
 export class Filters extends React.Component {
   render() {
     return (
       <FiltersContainer>
-        <h3>Filtros</h3>
+        <h2>Filtros</h2>
 
         <FormControl id="standard-textarea" fullWidth >
           <InputLabel>Pesquisar por nome</InputLabel>
@@ -51,60 +63,41 @@ export class Filters extends React.Component {
             onChange={this.props.onChageSearchName}
           />
         </FormControl>
-
-        <ValuesInput>
-          <label>Valor mínimo</label>
-          <input
-            type="number"
-            min="0"
-            value={this.props.minimum}
-            onChange={this.props.onChageMinimum}
-            placeholder="R$"
-          />
-          <label>Valor maximo</label>
-          <input
-            type="number"
-            max="10000"
-            value={this.props.maximum}
-            onChange={this.props.onChageMaximum}
-            placeholder="R$"
-          />
-        </ValuesInput>
-
-        <div>
-          <Typography gutterBottom>
-            Remuneração
+      <Typography  gutterBottom>
+        Remuneração
       </Typography>
-          <Slider
-            valueLabelDisplay="auto"
-            aria-labelledby="range-slider"
-            // getAriaValueText={"100"}
-            defaultValue={[0, 10000]}
-            max={10000}
-            // value={[this.props.minimum, this.props.maximum]}
-            onChange={this.props.onChageRemuneration}
-          />
-        </div>
-
+      <Slider
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        // getAriaValueText={"100"}
+        defaultValue={[0, this.props.maximumValue]}
+        max={this.props.maximumValue}
+        // value={[this.props.minimum, this.props.maximum]}
+        onChange={this.props.onChageRemuneration}
+        fullWidth
+      />
+      <MinMax>
+        <h5>Min: {this.props.minimum}</h5>
+        <h5>Máx: {this.props.maximum} </h5>
+      </MinMax>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-helper-label" fullWidth>Ordenar:</InputLabel>
-          <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            // value={}
-            // onChange={}
-            onChange={this.props.onChageOrdination}
-          >
-            <MenuItem value="" fullWidth>
-              <em>
-
-              </em>
-            </MenuItem>
-            <MenuItem value="title">Título</MenuItem>
-            <MenuItem value="value">Valor</MenuItem>
-            <MenuItem value="deadline">Prazo</MenuItem>
-          </Select>
-        </FormControl>
+        <InputLabel id="demo-simple-select-helper-label"   fullWidth>Ordenar:</InputLabel>
+        <Select
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          onChange={this.props.onChageOrdination}
+        >
+        
+          <MenuItem value="" fullWidth>
+            <em>
+              
+            </em>
+          </MenuItem>
+          <MenuItem value="title">Título</MenuItem>
+          <MenuItem value="value">Valor</MenuItem>
+          <MenuItem value="deadline">Prazo</MenuItem>
+        </Select>
+      </FormControl>
       </FiltersContainer>
     );
   }

@@ -46,6 +46,9 @@ const CardContainer = styled.div`
     color: white;
     font-weight: 700;
   }
+  #cancel{
+    background-color: #ff6b6b;
+  }
 `
 
 const DivData = styled.div`
@@ -79,7 +82,7 @@ export class Card extends React.Component {
       alert('Job aceito com sucesso!')
       await this.props.getJobs()
     } catch (error) {
-      console.log(error.message)
+      // console.log(error.message)
     }
   }
 
@@ -89,7 +92,7 @@ export class Card extends React.Component {
       alert('Job recusado com sucesso!')
       await this.props.getJobs()
     } catch (error) {
-      console.log(error.message)
+      // console.log(error.message)
     }
   }
 
@@ -118,7 +121,7 @@ export class Card extends React.Component {
         </Div>
 
         {this.props.taken ?
-          <Button onClick={this.giveupJob} variant="contained" color="primary">
+          <Button onClick={this.giveupJob} variant="contained" color="primary" id="cancel" >
             Cancelar proposta
           </Button>
           :

@@ -3,7 +3,7 @@
 Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos (FutureNinjas). 
 ### Link criado por meio do surge
 
-http://futureninja-cruzmarketplace3.surge.sh/
+futureninja-cruz-marketplace3.surge.sh
 
 ### Membros do grupo
 

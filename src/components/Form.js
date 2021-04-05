@@ -61,49 +61,52 @@ export default class Form extends Component {
     }
 
     onChangeRemuneration = (e) => {
-
-        this.setState({ remuneration: e.target.value })
-
-        //O código abaixo foi uma tentativa de converter o valor do input de remuneração para o formato de moeda sem, para isso, necessitar baixar novas extensões e plugins (como máscaras e JQuery). Contudo, essa tentativa foi frustrada devido a um bug específico (os números zeros não apareciam no input), motivo pelo qual decidimos não utilizada, deixando-a comitada somente para efeitos de informação.
-
-        //     let s = "";
-        //     let cp = "";
-        //     let vr = e.target.value;
-        //     let tam = vr.length;
-        //     for (let i = 0; i < tam; i++) {
-        //         if (vr.substring(i, i + 1) === "0" ||
-        //             vr.substring(i, i + 1) === "1" ||
-        //             vr.substring(i, i + 1) === "2" ||
-        //             vr.substring(i, i + 1) === "3" ||
-        //             vr.substring(i, i + 1) === "4" ||
-        //             vr.substring(i, i + 1) === "5" ||
-        //             vr.substring(i, i + 1) === "6" ||
-        //             vr.substring(i, i + 1) === "7" ||
-        //             vr.substring(i, i + 1) === "8" ||
-        //             vr.substring(i, i + 1) === "9") {
-        //             s = s + vr.substring(i, i + 1);
-        //         }
-        //     }
-        //     let s2 = "";
-        //     for (let i = 0; i < tam; i++) {
-        //         if (s.substring(i, i + 1) !== "0"){
-        //             s2 = s2 + s.substring(i, i + 1);
-        //         }
-        //     }
-        //     s= s2;
-        //     console.log("S1", s)
-        //      console.log("S2",s)
-        //     if (s.length > 3) {
-        //         cp = s.substring(0, s.length - 2) + '.' + s.substring(s.length - 2)
-        //     }else if(s.length > 2){
-        //         cp = '0,' + s
-        //     } 
-        //     else {
-        //         cp = '0,0' + s
-        //    }
-        //     // cp = Number(cp)
-        //     console.log(cp)
-        // this.setState({ remuneration: cp })
+        let s = "";
+        let cp = "";
+        let vr = e.target.value;
+        let tam = vr.length;
+        for (let i = 0; i < tam; i++) {
+            if (vr.substring(i, i + 1) === "0" ||
+                vr.substring(i, i + 1) === "1" ||
+                vr.substring(i, i + 1) === "2" ||
+                vr.substring(i, i + 1) === "3" ||
+                vr.substring(i, i + 1) === "4" ||
+                vr.substring(i, i + 1) === "5" ||
+                vr.substring(i, i + 1) === "6" ||
+                vr.substring(i, i + 1) === "7" ||
+                vr.substring(i, i + 1) === "8" ||
+                vr.substring(i, i + 1) === "9") {
+                s = s + vr.substring(i, i + 1);
+            }
+        }   
+        
+        // console.log("AASD", s, s.length)
+        // console.log("S0", s)
+        for (let i = 0; i < s.length; i++) {
+            // console.log("S1 for", i, s.substring(i, 1))
+            if (s.substring(0, 1) == "0"){
+                    s = s.substring(1);
+            }
+            else{
+                // s2 = s2 + s.substring(i);
+                break;
+            }
+        }
+        // console.log("S1", s)
+    
+        //  console.log("S2",s)
+        if (s.length > 2) {
+            cp = s.substring(0, s.length - 2) + ',' + s.substring(s.length - 2)
+       
+        }else if(s.length > 1){
+            cp = '00,' + s
+        } 
+        else {
+            cp = '00,0' + s
+       }
+        // cp = Number(cp)
+        console.log(cp)
+         this.setState({ remuneration: cp })
     }
 
     onChangeDeadline = (e) => {
@@ -152,7 +155,7 @@ export default class Form extends Component {
             let newJob = {
                 title: this.state.title,
                 description: this.state.description,
-                value: this.state.remuneration,
+                value: Number(this.state.remuneration.replace(",", ".")),
                 paymentMethods: chosenMethod,
                 dueDate: this.state.deadline,
             }
@@ -161,7 +164,7 @@ export default class Form extends Component {
                 this.setState({ title: '', description: '', remuneration: '', deadline: '', credit: false, debit: false, pix: false, cashPayment: false, deferredPayment: false })
                 alert('Serviço criado com sucesso!')
             } catch (error) {
-                console.log(error.response)
+                // console.log(error.response)
                 if (error.response.status === 400) {
                     alert('Os dados inseridos podem estar equivocados. Favor conferi-los.')
                 } else {
