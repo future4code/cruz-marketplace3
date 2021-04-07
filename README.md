@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## FutureNinjas 3
 
-## Available Scripts
+Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos (FutureNinjas). 
+### Link criado por meio do surge
 
-In the project directory, you can run:
+futureninja-cruz-marketplace3.surge.sh
 
-### `npm start`
+### Membros do grupo
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Janaylla Firmino
+- José Isaac Barreiro Campos
+- Kelvia Kelline dos Santos Sousa
+- Leonardo Federmann
+- Pedro Cysne
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Organização do site
+O site possui:
+- Uma página de apresentação da empresa, contendo uma slogan e um resumo dos propósitos do site. Contém também dois botões para direcionamento às demais páginas.
+- Uma página de cadastro de serviços, na qual um contratante poderá preencher um formulário que criará um novo serviço para o qual deseja contratar alguém. Deverão ser inseridas as informações: título; descrição; valor do serviço; métodos de pagamento (selecionados por meio de checkbox, sendo as opções: crédito, débito, pix, à vista e à prazo); e prazo de entrega.
+Há também um botão "enviar", que enviará o serviço criado à seguinte API: https://documenter.getpostman.com/view/9133542/TzCJfVAT
 
-### `npm test`
+- Uma página destinada aos prestadores de serviços, na qual são apresentados todos os trabalhos disponíveis. Cada trabalho está disposto em um card contendo as mesmas informações inseridas no formulário, junto de um botão "enviar proposta", que, caso apertado, permitirá que o profissional se candidate para aquele serviço. Nesse caso, o botão passará a ser "cancelar proposta" e, se pressionado novamente, permitirá que o profissional desista daquele serviço. 
+A página também contém, na lateral esquerda, uma seção de filtros, na qual o usuário poderá filtrar os serviços apresentados de acordo com: caracteres que estejam no título ou na descrição do serviço; e valor mínimo e máximo do valor esperado paara remuneração. Nessa mesma seção, encontra-se a opção de ordenar os serviços apresentados em ordem crescente de: valor de remuneração; prazo de entrega do serviço; e título (ordem alfabética).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Encontram-se também, nas páginas de cadastro e de serviços, um header com um logotipo que, caso clicado, conduzirá à página de apresentação; e um footer com informações fictícias da empresa, como hiperlinks para as redes sociais (que NÃO funcionam), bandeiras de cartões aceitos, endereços, dentre outros.
 
-### `npm run build`
+### O que funciona
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Todos os requisitos técnicos exigidos no Notion estão sendo atendidos, o que inclui: direcionamento às páginas de cadastro e lista de serviços; envio do serviço criado no formulário à API; resgate de todos os serviços na API de modo a formar a lista de serviços, organizados e apresentados em cards; e os filtros supracitados.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### O que não funciona
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Link com as redes sociais por meio do footer (inserido somente com objetivos ilustrativos). 
